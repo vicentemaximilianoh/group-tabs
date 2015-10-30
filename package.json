@@ -1,0 +1,15 @@
+{
+  "name": "group-tabs",
+  "version": "1.0.0",
+  "description": "Group Chrome tabs into categories",
+  "main": "background.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "[]\u001b[Dtabs",
+    "chrome]\u001b[D"
+  ],
+  "author": "Maximiliano Vicente",
+  "license": "ISC"
+}
