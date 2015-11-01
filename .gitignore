@@ -1,0 +1,7 @@
+
+#Dependencies folders
+node_modules/
+bower_components/
+
+#Deploy folders
+dist/
