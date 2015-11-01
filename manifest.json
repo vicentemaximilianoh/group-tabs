@@ -3,10 +3,17 @@
   "description": "Group tabs in categories.",
   "version": "0.1",
   "manifest_version": 2,
-  "app": {
-    "background": {
-      "scripts": ["background.js"]
-    }
+  "background": {
+    "persistent": false,
+        "scripts": ["background.js"]
+    },
+  "browser_action": {
+    "default_icon": "/app/img/calculator-16.png",
+    "default_popup": "app/index.html"
   },
-  "icons": { "16": "/app/img/calculator-16.png", "128": "/app/img/calculator-128.png" }
+  "permissions": [
+      "contextMenus",
+    "activeTab",
+    "https://ajax.googleapis.com/"
+  ]
 }
