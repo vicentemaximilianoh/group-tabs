@@ -5,15 +5,20 @@
       <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
       <!-- endbuild -->
   </head>
-  <body ng-controller="CategoriesCtrl">
-    <div>Hello, {{ name }}!</div>
+  <body>
+    <a ui-sref="categories" >Categories</a>
+    <ui-view></ui-view>
     
     
     <!-- build:js /js/site.js -->
-    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     
     <script src="/app/js/app.js"></script>
+    <script src="/app/js/categories/categories.js"></script>
+    <script src="/app/js/categories/categories.route.js"></script>
     <script src="/app/js/categories/categories.controller.js"></script>
+    <script src="/app/js/categories/categories.service.js"></script>
     <!-- endbuild -->
   </body>
 </html>

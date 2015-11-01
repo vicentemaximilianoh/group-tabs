@@ -1,1 +1,1 @@
-angular.module('grouped-tabs', []);
+angular.module('grouped-tabs', ['ui.router','categories']);

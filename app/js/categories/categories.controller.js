@@ -1,4 +1,4 @@
-angular.module('grouped-tabs')
+angular.module('categories')
 .controller('CategoriesCtrl', CategoriesCtrl);
 
 
