@@ -3,23 +3,42 @@
   <head>
      <!-- build:css /css/site.css -->
       <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+      <link href="/app/css/main.css" rel="stylesheet" />
       <!-- endbuild -->
   </head>
   <body>
-    <a ui-sref="categories" >View Categories</a>
+  
+  <div  class="container-fluid">
+
+   <ul class="nav nav-pills">
+  <li role="presentation" class="active">
+    <a ui-sref="categories.list" >View Groups</a>
+  </li>
+  <li role="presentation">
+    <a ui-sref="categories.new" >New Tabs Group</a>
+ </li>
+</ul>
     <ui-view></ui-view>
     
     
-    <!-- build:js /js/site.js -->
+
+</div>
+    <!-- build:js /js/libs.js -->
+    <script src="/bower_components/underscore/underscore-min.js"></script>
     <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-route/angular-route.js" ></script>
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="/bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <!-- endbuild -->
     
+    <!-- build:js1 /js/app.js -->
     <script src="/app/js/app.js"></script>
-    <script src="/app/js/categories/categories.js"></script>
-    <script src="/app/js/categories/categories.route.js"></script>
-    <script src="/app/js/categories/categories.controller.js"></script>
-    <script src="/app/js/categories/categories.service.js"></script>
+    <script src="/app/js/modules/categories/categories.js"></script>
+    <script src="/app/js/modules/categories/categories.route.js"></script>
+    <script src="/app/js/modules/categories/controllers/categories.controller.js"></script>
+    <script src="/app/js/modules/categories/controllers/category-new.controller.js"></script>
+    <script src="/app/js/modules/categories/controllers/category-edit.controller.js"></script>
+    <script src="/app/js/modules/categories/services/categories.service.js"></script>
     <!-- endbuild -->
   </body>
 </html>

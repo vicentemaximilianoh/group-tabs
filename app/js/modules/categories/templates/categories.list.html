@@ -1,0 +1,13 @@
+
+
+<ul ng-repeat="category in categories" class="list-unstyled">
+    <li>
+        <a href="#" ng-click="categoriesCtrl.recoverTabs($index)" ng-bind="category.name"></a>
+        <a ui-sref="categories.edit({categoryId: $index})">
+            <i class="glyphicon glyphicon-pencil"></i>
+        </a>
+        <a href="#" ng-click="categoriesCtrl.deleteCategory($index)">
+            <i class="glyphicon glyphicon-remove"></i>
+        </a>
+    </li>
+</ul>
