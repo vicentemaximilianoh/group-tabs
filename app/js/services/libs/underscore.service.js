@@ -1,11 +1,12 @@
-(function (angular){
+//(function (angular){
     
     angular.module('libs')
-    .factory('$_', UnderscoreService);
+    .factory('$underscore', UnderscoreService);
 
     function UnderscoreService () {
-        return _;
+        return window._;
     };
+    
     UnderscoreService.$inject = [];
     
-}());
+//}(angular));

@@ -1,34 +1,39 @@
 (function (angular) {
-    
+
     angular.module('categories')
-    .factory('Category', Category);
-    
-    function Category () {
-        
+        .factory('Category', Category);
+
+    function Category(CategoriesService) {
+
         var _name = null;
-        var _urls = [];
-        
-        var getName = function getName () {
+        var _tabs = [];
+
+        var getName = function getName() {
             return _name;
         };
-        
-        var setName = function setName (name) {
+
+        var setName = function setName(name) {
             _name = name;
         };
-        
-        var addUrl = function addUrl (url) {
-            _urls.push(url);
+
+        var addTab = function addTab(tab) {
+            _tabs.push(tab);
         };
-        
-        
-        return function (name) {
-            getName: getName,
-            setName: setName,
-            addUrl: addUrl
-        }
-        
+
+
+        function Category() {
+            this.id = CategoriesService.getAutoincrementId();
+            this.name = null;
+            this.tabs = [];
+        };
+
+        Category.prototype.getName = getName;
+        Category.prototype.setName = setName;
+        Category.prototype.addTab = addTab;
+
+        return Category;
     };
-    
-    Category.$inject = [];
-    
+
+    Category.$inject = ['CategoriesService'];
+
 })(angular);

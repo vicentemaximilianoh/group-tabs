@@ -12,13 +12,13 @@ function CategoriesCtrl ($scope, $state, CategoriesService) {
         $state.go('categories.new');
     };
     
-    this.deleteCategory = function (index) {
-        $scope.categories.splice(index, 1);
-        CategoriesService.remove(index);
+    this.deleteCategory = function (id) {
+        CategoriesService.remove(id);
+        $scope.categories = CategoriesService.getAll();
     };
     
-    this.recoverTabs = function (index) {
-        var category = CategoriesService.get(index);
+    this.recoverTabs = function (id) {
+        var category = CategoriesService.get(id);
         category.tabs.forEach(function (tab) {
             chrome.tabs.create({ url: tab.url });
         });

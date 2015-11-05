@@ -2,11 +2,11 @@
 
 <ul ng-repeat="category in categories" class="list-unstyled">
     <li>
-        <a href="#" ng-click="categoriesCtrl.recoverTabs($index)" ng-bind="category.name"></a>
-        <a ui-sref="categories.edit({categoryId: $index})">
+        <a href="#" ng-click="categoriesCtrl.recoverTabs(category.id)" ng-bind="category.name"></a>
+        <a ui-sref="categories.edit({categoryId: category.id})">
             <i class="glyphicon glyphicon-pencil"></i>
         </a>
-        <a href="#" ng-click="categoriesCtrl.deleteCategory($index)">
+        <a href="#" ng-click="categoriesCtrl.deleteCategory(category.id)">
             <i class="glyphicon glyphicon-remove"></i>
         </a>
     </li>
