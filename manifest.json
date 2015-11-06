@@ -1,19 +1,18 @@
 {
-  "name": "Group Tabs",
-  "description": "Group tabs in categories.",
-  "version": "0.1",
-  "manifest_version": 2,
-  "background": {
+    "name": "Group Tabs",
+    "description": "Group tabs in categories.",
+    "version": "0.1",
+    "manifest_version": 2,
+    "background": {
         "scripts": ["background.js"]
     },
-  "browser_action": {
-    "default_icon": "/app/img/calculator-16.png",
-    "default_popup": "app/index.html"
-  },
-  "permissions": [
+    "browser_action": {
+        "default_icon": "/app/img/calculator-16.png",
+        "default_popup": "/app/index.html"
+    },
+    "permissions": [
       "contextMenus",
       "tabs",
     "activeTab",
-    "https://ajax.googleapis.com/"
-  ]
+    "https://ajax.googleapis.com/"]
 }
