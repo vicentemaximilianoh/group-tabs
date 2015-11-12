@@ -2,3 +2,10 @@ body {
     min-width: 640px;
     padding: 10px 0;
 }
+
+
+/* Forms */
+
+input.ng-invalid {
+    border: 1px solid red;
+}
