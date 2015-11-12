@@ -81,6 +81,12 @@ gulp.task('fix-manifest', function (done) {
         .on('end', done);
 });
 
+gulp.task('fix-fonts', function (done) {
+    gulp.src(['./bower_components/bootstrap/fonts/*'])
+        .pipe(gulp.dest('./dist/fonts/'))
+        .on('end', done);
+});
+
 gulp.task('copy-background', function (done) {
     gulp.src(['background.js'])
         .pipe(gulp.dest('./dist'))
@@ -90,7 +96,8 @@ gulp.task('copy-background', function (done) {
 gulp.task('default', function (done) {
 
     runSequence(
-        'clean', ['fix-index', 'fix-manifest', 'copy-background'], ['minify', 'images'], ['copy-templates', 'fix-templates'], done
+        'clean', ['fix-index', 'fix-manifest', 'copy-background'], ['minify', 'images'], ['copy-templates', 'fix-templates', 'fix-fonts'],
+        done
     );
 
 });
