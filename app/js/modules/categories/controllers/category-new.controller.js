@@ -20,30 +20,38 @@
         });
 
         this.deleteTab = function deleteTab(index) {
-            if ($scope.category.tabs.length > 1) {
-                $scope.category.tabs.splice(index, 1);
-            } else {
-                $window.alert('The category must have one tab at least.');
+            if ($window.confirm('You want to delete this tab?')) {
+                if ($scope.category.tabs.length > 1) {
+                    $scope.category.tabs.splice(index, 1);
+                } else {
+                    $window.alert('The category must have one tab at least.');
+                }
             }
         };
 
         this.save = function save() {
 
-            $scope.openTabs.forEach(function (tab) {
-                if (tab.checked) {
-                    $scope.category.tabs.push(tab);
-                };
-            });
+            if (!$scope.category.tabs.length) {
+                $window.alert('You must select one tab at least.');
+            } else {
 
-            CategoriesService.create($scope.category);
+                $scope.openTabs.forEach(function (tab) {
+                    if (tab.checked) {
+                        $scope.category.tabs.push(tab);
+                    };
+                });
 
-            $scope.openTabs.forEach(function (tab) {
-                if (tab.checked) {
-                    chrome.tabs.remove(tab.id);
-                };
-            });
+                CategoriesService.create($scope.category);
 
-            $state.go('categories.list');
+                $scope.openTabs.forEach(function (tab) {
+                    if (tab.checked) {
+                        chrome.tabs.remove(tab.id);
+                    };
+                });
+
+                $state.go('categories.list');
+
+            }
         };
 
     };

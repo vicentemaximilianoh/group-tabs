@@ -15,39 +15,46 @@
         });
 
         this.deleteTab = function deleteTab(id) {
-            if ($scope.category.tabs.length > 1) {
-                var index = -1;
-                $scope.openTabs.forEach(function (tab, key) {
-                    if (tab.id === id) {
-                        index = key;
-                        return;
-                    }
-                });
+            if ($window.confirm('You want to delete this tab?')) {
+                if ($scope.category.tabs.length > 1) {
+                    var index = -1;
+                    $scope.openTabs.forEach(function (tab, key) {
+                        if (tab.id === id) {
+                            index = key;
+                            return;
+                        }
+                    });
 
-                $scope.category.tabs.splice(index, 1);
+                    $scope.category.tabs.splice(index, 1);
 
-            } else {
-                $window.alert('The category must have one tab at least.');
+                } else {
+                    $window.alert('The category must have one tab at least.');
+                }
             }
         };
 
         this.save = function save() {
 
-            $scope.openTabs.forEach(function (tab) {
-                if (tab.checked) {
-                    $scope.category.tabs.push(tab);
-                }
-            });
+            if (!$scope.category.tabs.length) {
+                $window.alert('You must select one tab at least.');
+            } else {
 
-            CategoriesService.update($scope.category, $stateParams.categoryId);
+                $scope.openTabs.forEach(function (tab) {
+                    if (tab.checked) {
+                        $scope.category.tabs.push(tab);
+                    }
+                });
 
-            $scope.openTabs.forEach(function (tab) {
-                if (tab.checked) {
-                    chrome.tabs.remove(tab.id);
-                }
-            });
+                CategoriesService.update($scope.category, $stateParams.categoryId);
 
-            $state.go('categories.list');
+                $scope.openTabs.forEach(function (tab) {
+                    if (tab.checked) {
+                        chrome.tabs.remove(tab.id);
+                    }
+                });
+
+                $state.go('categories.list');
+            }
         };
 
 
